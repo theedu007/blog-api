@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200926030817_Creacion-BD.cs" />
     <Compile Remove="Migrations\20200926030817_Creacion-BD.Designer.cs" />
+    <Compile Remove="Migrations\20200926032202_Creacion-BD.cs" />
+    <Compile Remove="Migrations\20200926032202_Creacion-BD.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +24,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlogAPI.Models\BlogAPI.Models.csproj" />
+    <ProjectReference Include="..\BlogAPI.Services\BlogAPI.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 

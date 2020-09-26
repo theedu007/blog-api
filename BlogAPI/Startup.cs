@@ -2,10 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlogAPI.Models.Models;
 using BlogAPI.Persistance;
+using BlogAPI.Services.Services;
+using Edu.Repository;
+using Edu.Security;
+using Edu.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +38,12 @@ namespace BlogAPI
                 opts.UseSqlServer(Configuration.GetConnectionString("BlogDb"));
             });
             services.AddControllers();
+
+
+            services.AddScoped(typeof(IPasswordHasher<>), typeof(BcryptPasswordHasher<>));
+            services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
+            services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
+            services.AddScoped<AuthService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

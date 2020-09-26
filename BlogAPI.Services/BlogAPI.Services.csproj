@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlogAPI.Models\BlogAPI.Models.csproj" />
+    <ProjectReference Include="..\csharp-utils\Edu.csproj" />
+  </ItemGroup>
+
 </Project>

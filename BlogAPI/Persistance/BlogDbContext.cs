@@ -20,6 +20,7 @@ namespace BlogAPI.Persistance
             modelBuilder.ApplyConfiguration(new PostModelConfiguration());
             modelBuilder.ApplyConfiguration(new PostTagModelConfiguration());
             modelBuilder.ApplyConfiguration(new TagModelConfiguration());
+            modelBuilder.ApplyConfiguration(new UserModelConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }
