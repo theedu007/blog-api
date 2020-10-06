@@ -13,7 +13,7 @@ namespace BlogAPI.Models.AutoMapperProfiles
         public PostProfile()
         {
             CreateMap<Post, PostDto>()
-                .ForMember(post => post.PostedOn, cfg => cfg.MapFrom(source => source.PostedOn.ToString("O")))
+                .ForMember(post => post.PostedOn, cfg => cfg.MapFrom(source => source.PostedOn.ToString("o",System.Globalization.CultureInfo.InvariantCulture)))
                 .ForMember(post => post.UpdatedAt, cfg => cfg.MapFrom(source => source.UpdatedAt != null ? source.UpdatedAt.Value.ToString("O") : null))
                 .ForMember(post => post.Category, cfg => cfg.MapFrom(new CategoryResolver(), source => source.Category))
                 .ForMember(post => post.Tags, cfg => cfg.MapFrom(new TagResolver(), source => source.Tags));

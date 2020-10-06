@@ -43,8 +43,22 @@ namespace BlogAPI.Controllers
             return Ok(response);
         }
 
+        #region Metodos que requieren que el usuario este registrado
+
         [Authorize]
-        [HttpPost("Create")]
+        [HttpGet("id/{id}")]
+        public IActionResult GetPost(int id)
+        {
+            var response = _postService.GetPost(id);
+            if (!response.Success)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
+
+        [Authorize]
+        [HttpPost("create")]
         public IActionResult CreatePost(PostDto request)
         {
             var response = _postService.CreatePost(request);
@@ -54,5 +68,31 @@ namespace BlogAPI.Controllers
             }
             return Created("1",response);
         }
+
+        [Authorize]
+        [HttpPut("update")]
+        public IActionResult UpdatePost(PostDto request)
+        {
+            var response = _postService.UpdatePost(request);
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
+
+        [Authorize]
+        [HttpDelete("delete")]
+        public IActionResult DeletePost(PostDto request)
+        {
+            var response = _postService.DeletePost(request);
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
+
+        #endregion
     }
 }
