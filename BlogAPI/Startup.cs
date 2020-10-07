@@ -83,6 +83,10 @@ namespace BlogAPI
                     options.AllowAnyMethod();
                 });
             }
+            else
+            {
+                app.UseCors(builder => builder.WithOrigins("http://localhost:3000"));
+            }
 
             app.UseHttpsRedirection();
 

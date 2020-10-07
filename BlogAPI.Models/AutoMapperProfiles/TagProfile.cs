@@ -11,11 +11,7 @@ namespace BlogAPI.Models.AutoMapperProfiles
     {
         public TagProfile()
         {
-            CreateMap<Tags, TagDto>()
-                .ForMember(tag => tag.Description, cfg => cfg.MapFrom(source => source.Description))
-                .ForMember(tag => tag.Id, cfg => cfg.MapFrom(source => source.Id))
-                .ForMember(tag => tag.Name, cfg => cfg.MapFrom(source => source.Name))
-                .ForMember(tag => tag.UrlSlug, cfg => cfg.MapFrom(source => source.UrlSlug));
+            CreateMap<Tags, TagDto>();
         }
     }
 }
